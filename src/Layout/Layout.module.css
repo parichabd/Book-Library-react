@@ -1,0 +1,22 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  width: calc(100% - 6rem);
+  margin: 0 auto;
+  background-color: rgba(0, 0, 0, 0.515);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.link {
+  margin-top: 12px;
+}
+
+.footrerParagraph {
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.515);
+  width: calc(100% - 6rem);
+  margin: 0 auto;
+  border-radius: 12px;
+  padding: 20px;
+}
