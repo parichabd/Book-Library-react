@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.cards {
+  flex: 2.6 1 0;
+  min-height: 100vh;
+}
+
+.fav {
+  flex: 1 1 0;
+  background-color: #6552f4;
+  border-radius: 10px;
+  padding: 15px;
+  color: white;
+  margin-left: 20px;
+  margin-top: 30px;
+}
+
+
+.fav h4 {
+    font-size: 1.2rem;
+}

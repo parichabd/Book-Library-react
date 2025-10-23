@@ -1,7 +1,8 @@
-// Books.jsx
 import { useState } from "react";
 import { books } from "../constants/mockData";
 import BookList from "./BookList";
+import BookLikedList from "./BookLikedList";
+import styles from "./BooksLiked.module.css";
 
 function Books() {
   const [liked, setLiked] = useState([]);
@@ -16,14 +17,22 @@ function Books() {
   };
 
   return (
-    <>
-      <div>
+    <div className={styles.container}>
+      <div className={styles.cards}>
         {books.map((book) => (
           <BookList key={book.id} data={book} LikeHandler={LikeHandler} />
         ))}
       </div>
-      {!!liked.length && <div>Liked Books: {liked.length}</div>}
-    </>
+
+      {!!liked.length && (
+        <div className={styles.fav}>
+          <h4>Favorites</h4>
+          {liked.map((book) => (
+            <BookLikedList key={book.id} data={book} />
+          ))}
+        </div>
+      )}
+    </div>
   );
 }
 
