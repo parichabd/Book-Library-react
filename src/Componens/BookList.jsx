@@ -1,4 +1,3 @@
-// BookList.jsx
 import { useState } from "react";
 import { FaHeart } from "react-icons/fa";
 import styles from "./BookList.module.css";

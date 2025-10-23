@@ -1,11 +1,14 @@
 import { useState } from "react";
-import { books } from "../constants/mockData";
+import { books as bookData } from "../constants/mockData";
 import BookList from "./BookList";
 import BookLikedList from "./BookLikedList";
 import styles from "./BooksLiked.module.css";
+import SearchBooks from "./SearchBooks";
 
 function Books() {
+  const [books, setBooks] = useState(bookData);
   const [liked, setLiked] = useState([]);
+  const [search, setSearch] = useState([]);
 
   const LikeHandler = (isLiked, book) => {
     if (isLiked) {
@@ -16,23 +19,37 @@ function Books() {
     }
   };
 
-  return (
-    <div className={styles.container}>
-      <div className={styles.cards}>
-        {books.map((book) => (
-          <BookList key={book.id} data={book} LikeHandler={LikeHandler} />
-        ))}
-      </div>
+  const searchHandler = () => {
+    if (search) {
+      const newBook = bookData.filter((book) =>
+        book.title.toLowerCase().includes(search)
+      );
+      setBooks(newBook)
+    }else{
+      setBooks(bookData)
+    }
+  };
 
-      {!!liked.length && (
-        <div className={styles.fav}>
-          <h4>Favorites</h4>
-          {liked.map((book) => (
-            <BookLikedList key={book.id} data={book} />
+  return (
+    <>
+      <SearchBooks search={search} setSearch={setSearch} searchHandler={searchHandler} />
+      <div className={styles.container}>
+        <div className={styles.cards}>
+          {books.map((book) => (
+            <BookList key={book.id} data={book} LikeHandler={LikeHandler} />
           ))}
         </div>
-      )}
-    </div>
+
+        {!!liked.length && (
+          <div className={styles.fav}>
+            <h4>Favorites</h4>
+            {liked.map((book) => (
+              <BookLikedList key={book.id} data={book} />
+            ))}
+          </div>
+        )}
+      </div>
+    </>
   );
 }
 
