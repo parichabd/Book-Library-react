@@ -10,4 +10,4 @@ Currently, two official plugins are available:
 
 
 
-[!ALT PIC](https://github.com/parichabd/Book-Library-react/blob/main/Screenshot%20(135).png?raw=true  )
+![ALT PIC](https://github.com/parichabd/Book-Library-react/blob/main/Screenshot%20(135).png?raw=true  )
